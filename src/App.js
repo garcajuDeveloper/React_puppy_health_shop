@@ -1,9 +1,12 @@
 import React from 'react';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className="container">
+      <Header 
+        title = {'Puppy Health Clinic Pacients'}
+      />
     </div>
   );
 }
