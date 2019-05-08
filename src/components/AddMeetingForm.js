@@ -3,12 +3,17 @@ import React, { Component } from 'react';
 class AddMeetingForm extends Component{
     state = {}
 
+    newMeeting = (e) =>{
+        e.preventDefault();
+        this.props.createMeeting();
+    }
+
     render(){
         return( 
             <div className = "card mt-5">
                 <div className = "card-body">
                     <h2 className = "card-title text-center mb-5">Add Meeting</h2>
-                    <form >
+                    <form onSubmit = {this.newMeeting}>
                         <div className="form-group row">
                             <label className="col-sm-4 col-lg-2 col-form-label">Pet</label>
                             <div className="col-sm-8 col-lg-10">
