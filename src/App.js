@@ -4,8 +4,12 @@ import AddMeetingForm from './components/AddMeetingForm';
 
 class App extends Component {
 
-  createMeeting = () =>{
-    console.log('from App.js');
+  state = { meetings : [] } 
+
+  createMeeting = (newMeeting) =>{
+    const meetings = [...this.state.meetings, newMeeting];
+    console.log(meetings);
+    this.setState({ meetings });
   }
 
   render(){
