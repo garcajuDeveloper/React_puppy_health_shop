@@ -9,7 +9,7 @@ class AddMeetingForm extends Component{
     hourRef = React.createRef();
     symptomRef = React.createRef();
 
-    state = {}
+    state = { error : false }
 
     createNewMeeting = (e) =>{
         e.preventDefault();
@@ -19,12 +19,18 @@ class AddMeetingForm extends Component{
               hour = this.hourRef.current.value,
               symptom = this.symptomRef.current.value;
 
-        const newMeeting = { id : uuid(), pet, owner, date, hour, symptom }
-        this.props.createMeeting(newMeeting);
-        e.currentTarget.reset();
+        if( pet === '' || owner === '' || date === '' || hour === '' || symptom === ''){
+            this.setState({ error : true });
+        }else{
+            const newMeeting = { id : uuid(), pet, owner, date, hour, symptom }
+            this.props.createMeeting(newMeeting);
+            e.currentTarget.reset();
+            this.setState({ error : false});
+        }
     }
 
     render(){
+        const isError = this.state.error;
         return( 
             <div className = "card mt-5">
                 <div className = "card-body">
@@ -67,6 +73,7 @@ class AddMeetingForm extends Component{
                             </div>
                         </div>
                     </form>
+                    { isError ? <div className = "alert alert-danger text-center">Insufficient information</div> : ''}
                 </div>
             </div>
         );
