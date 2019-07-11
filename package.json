@@ -2,7 +2,7 @@
   "name": "puppy_health_shop",
   "version": "0.1.0",
   "private": true,
-  "home": "https://garcajudeveloper.github.io/React_puppy_health_shop/",
+  "home": "https://garcajuDeveloper.github.io/React_puppy_health_shop/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
